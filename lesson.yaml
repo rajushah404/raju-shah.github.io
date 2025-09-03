@@ -1,0 +1,31 @@
+what is web gl and three-js? 
+make a cube as quicker as possible
+
+understanding the code:
+
+transformations: rotation, translation, scaling
+
+animation
+
+setting up vite 
+ 
+
+//----------------------------------//
+ // to rotate the whole element 180 degree
+mesh.rotation.y = Math.PI/4;
+mesh.rotation.x = Math.PI/4;
+
+
+// //positioning the mesh
+// mesh.position.x = 1;
+// mesh.position.y = 1;
+// mesh.position.z = 1;
+
+// // rotation the mesh
+// mesh.rotation.x = 1;
+// mesh.rotation.y = 1;    
+
+// //scaling the mesh
+// mesh.scale.x = 2;
+// mesh.scale.y = 2;
+// mesh.scale.z = 2; 
