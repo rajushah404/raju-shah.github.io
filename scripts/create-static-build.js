@@ -280,6 +280,6 @@ const staticHtml = `<!doctype html>
   </body>
 </html>`
 
-// Write the static HTML file
-writeFileSync('dist/index.html', staticHtml)
-console.log('✅ Created static HTML build')
+// Write the static HTML file as a fallback
+writeFileSync('dist/static.html', staticHtml)
+console.log('✅ Created static HTML fallback')

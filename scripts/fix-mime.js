@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync, copyFileSync } from 'fs'
 import { join } from 'path'
 
 // Read the built index.html
@@ -13,4 +13,13 @@ const fixedHtml = html.replace(
 
 // Write the fixed HTML
 writeFileSync(indexPath, fixedHtml)
-console.log('✅ Fixed HTML to remove module type')
+
+// Copy _headers file to dist
+try {
+  copyFileSync('public/_headers', 'dist/_headers')
+  console.log('✅ _headers file copied to dist')
+} catch (error) {
+  console.log('⚠️  _headers file not found, skipping...')
+}
+
+console.log('✅ Fixed HTML to remove module type and copied headers')
