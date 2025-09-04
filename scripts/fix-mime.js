@@ -5,10 +5,10 @@ import { join } from 'path'
 const indexPath = 'dist/index.html'
 const html = readFileSync(indexPath, 'utf8')
 
-// Replace the module script with a regular script
+// Replace any module script with a regular script
 const fixedHtml = html.replace(
-  '<script type="module" crossorigin src="/raju-shah.github.io/assets/index.js"></script>',
-  '<script src="/raju-shah.github.io/assets/index.js"></script>'
+  /<script type="module"[^>]*src="([^"]*)"[^>]*><\/script>/g,
+  '<script src="$1"></script>'
 )
 
 // Write the fixed HTML
