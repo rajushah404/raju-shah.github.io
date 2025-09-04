@@ -11,15 +11,31 @@ const fixedHtml = html.replace(
   '<script src="$1"></script>'
 )
 
-// Write the fixed HTML
-writeFileSync(indexPath, fixedHtml)
+// Add favicon link to the HTML
+const htmlWithFavicon = fixedHtml.replace(
+  '<title>Raju</title>',
+  '<title>Raju</title>\n    <link rel="icon" type="image/x-icon" href="/favicon.ico">'
+)
 
-// Copy _headers file to dist
+// Write the fixed HTML
+writeFileSync(indexPath, htmlWithFavicon)
+
+// Copy favicon from public directory
 try {
-  copyFileSync('public/_headers', 'dist/_headers')
-  console.log('✅ _headers file copied to dist')
+  copyFileSync('public/favicon.ico', 'dist/favicon.ico')
+  console.log('✅ favicon.ico copied to dist')
 } catch (error) {
-  console.log('⚠️  _headers file not found, skipping...')
+  // Create a simple favicon.ico file if not found
+  writeFileSync('dist/favicon.ico', '')
+  console.log('✅ Created empty favicon.ico')
 }
 
-console.log('✅ Fixed HTML to remove module type and copied headers')
+// Copy .htaccess file to dist
+try {
+  copyFileSync('public/.htaccess', 'dist/.htaccess')
+  console.log('✅ .htaccess file copied to dist')
+} catch (error) {
+  console.log('⚠️  .htaccess file not found, skipping...')
+}
+
+console.log('✅ Fixed HTML to remove module type and added favicon')

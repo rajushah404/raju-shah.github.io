@@ -23,6 +23,9 @@ export default defineConfig({
       },
     },
   },
+  esbuild: {
+    target: 'es2015'
+  },
   define: {
     'process.env.NODE_ENV': '"production"'
   },
