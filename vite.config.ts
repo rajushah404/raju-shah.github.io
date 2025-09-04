@@ -11,13 +11,15 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
+    target: 'es2015',
     rollupOptions: {
       output: {
         format: 'iife',
         manualChunks: undefined,
         entryFileNames: 'assets/[name].js',
         chunkFileNames: 'assets/[name].js',
-        assetFileNames: 'assets/[name].[ext]'
+        assetFileNames: 'assets/[name].[ext]',
+        inlineDynamicImports: true
       },
     },
   },
