@@ -64,18 +64,18 @@ function App() {
       </main>
       
                   <Footer />
-            
-            {/* Floating Action Button */}
-            <div className="fixed bottom-8 right-8 z-50">
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-16 h-16 bg-green-400 border-2 border-green-400 rounded-full flex items-center justify-center hover:bg-black hover:text-green-400 transition-all duration-300 transform hover:scale-110 shadow-lg shadow-green-400/50 animate-pulse"
-              >
-                <span className="text-2xl font-bold">💬</span>
-              </button>
-            </div>
-          </div>
-        )
-      }
       
-      export default App
+      {/* Floating Action Button */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <button
+          onClick={() => scrollToSection('contact')}
+          className="w-16 h-16 bg-green-400 border-2 border-green-400 rounded-full flex items-center justify-center hover:bg-black hover:text-green-400 transition-all duration-300 transform hover:scale-110 shadow-lg shadow-green-400/50 animate-pulse"
+        >
+          <span className="text-2xl font-bold">💬</span>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default App
