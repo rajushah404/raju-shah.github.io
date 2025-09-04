@@ -12,6 +12,7 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     target: 'es2015',
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         format: 'iife',

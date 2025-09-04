@@ -5,10 +5,16 @@ import { join } from 'path'
 const indexPath = 'dist/index.html'
 const html = readFileSync(indexPath, 'utf8')
 
-// Replace any module script with a regular script
-const fixedHtml = html.replace(
+// Replace any module script with a regular script and also handle any remaining module references
+let fixedHtml = html.replace(
   /<script type="module"[^>]*src="([^"]*)"[^>]*><\/script>/g,
   '<script src="$1"></script>'
+)
+
+// Also remove any crossorigin attributes that might cause issues
+fixedHtml = fixedHtml.replace(
+  /<script[^>]*crossorigin[^>]*>/g,
+  (match) => match.replace(/\s*crossorigin[^>]*/, '')
 )
 
 // Add favicon link to the HTML
