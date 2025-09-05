@@ -5,7 +5,6 @@ const SkillsSection: React.FC = () => {
     frontend: skills.filter(skill => skill.category === 'frontend'),
     backend: skills.filter(skill => skill.category === 'backend'),
     tools: skills.filter(skill => skill.category === 'tools'),
-    design: skills.filter(skill => skill.category === 'design')
   }
 
   const getCategoryIcon = (category: string) => {
