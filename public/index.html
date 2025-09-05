@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raju</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: black;
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container {
+        text-align: center;
+        padding: 2rem;
+        border: 2px solid #00ff00;
+        background: rgba(0, 0, 0, 0.8);
+      }
+      h1 {
+        color: #00ff00;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 10px #00ff00;
+      }
+      p {
+        color: #00ffff;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+      .loading {
+        color: #ffff00;
+        animation: blink 1s infinite;
+      }
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+      .error {
+        color: #ff0000;
+        background: rgba(255, 0, 0, 0.1);
+        padding: 1rem;
+        border: 1px solid #ff0000;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>RAJU.exe</h1>
+      <p>Flutter Developer & Mobile App Specialist</p>
+      <div class="loading">Loading portfolio...</div>
+      <div class="error">
+        <p>⚠️ JavaScript modules not supported on this server</p>
+        <p>Portfolio is being rebuilt with compatible format...</p>
+        <p>Please refresh in a few minutes</p>
+      </div>
+    </div>
+    
+    <script>
+      // Simple fallback script
+      console.log('Fallback script loaded successfully');
+      
+      // Try to redirect to the main app after a delay
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
+    </script>
+  </body>
+</html>
