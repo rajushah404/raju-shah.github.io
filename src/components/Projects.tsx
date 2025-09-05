@@ -18,7 +18,7 @@ const Projects: React.FC = () => {
         }}></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative z-10">
         <div className="text-center mb-16">
           <div className="text-purple-400 text-sm font-mono tracking-wider mb-2">
             &gt; LOADING PROJECTS.DAT...
@@ -32,33 +32,33 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Featured Projects */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
           {featuredProjects.map((project) => (
             <div key={project.id} className="group">
               <div className="bg-black border-2 border-purple-400 overflow-hidden hover:border-cyan-400 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-400/20">
                 {/* Project Header */}
-                <div className="bg-purple-400 p-4 group-hover:bg-cyan-400 transition-colors duration-300">
-                  <div className="flex items-center space-x-3">
-                    <span className="text-2xl group-hover:animate-bounce">📱</span>
-                    <h3 className="text-xl font-bold text-black font-mono group-hover:animate-pulse">{project.title.toUpperCase()}</h3>
+                <div className="bg-purple-400 p-3 md:p-4 group-hover:bg-cyan-400 transition-colors duration-300">
+                  <div className="flex items-center space-x-2 md:space-x-3">
+                    <span className="text-xl md:text-2xl group-hover:animate-bounce">📱</span>
+                    <h3 className="text-lg md:text-xl font-bold text-black font-mono group-hover:animate-pulse break-words">{project.title.toUpperCase()}</h3>
                   </div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <div className="bg-black border border-purple-400 p-4 mb-4 font-mono">
-                    <div className="text-purple-400 text-sm mb-2">&gt; PROJECT_INFO.TXT</div>
-                    <p className="text-purple-300 text-sm leading-relaxed">{project.description}</p>
+                <div className="p-4 md:p-6">
+                  <div className="bg-black border border-purple-400 p-3 md:p-4 mb-4 font-mono">
+                    <div className="text-purple-400 text-xs md:text-sm mb-2">&gt; PROJECT_INFO.TXT</div>
+                    <p className="text-purple-300 text-xs md:text-sm leading-relaxed break-words">{project.description}</p>
                   </div>
                   
                   {/* Technologies */}
                   <div className="mb-4">
-                    <div className="text-purple-400 text-sm font-mono mb-2 group-hover:text-cyan-400 transition-colors">&gt; TECHNOLOGIES.DAT</div>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="text-purple-400 text-xs md:text-sm font-mono mb-2 group-hover:text-cyan-400 transition-colors">&gt; TECHNOLOGIES.DAT</div>
+                    <div className="flex flex-wrap gap-1 md:gap-2">
                       {project.technologies.map((tech) => (
                         <span 
                           key={tech}
-                          className="px-3 py-1 bg-purple-400 text-black text-sm font-mono font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 transform hover:scale-110"
+                          className="px-2 md:px-3 py-1 bg-purple-400 text-black text-xs md:text-sm font-mono font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 transform hover:scale-110"
                         >
                           {tech.toUpperCase()}
                         </span>
@@ -66,6 +66,29 @@ const Projects: React.FC = () => {
                     </div>
                   </div>
 
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-2 mt-4">
+                    {project.liveUrl && (
+                      <a 
+                        href={project.liveUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2 bg-purple-400 text-black font-bold font-mono text-center hover:bg-cyan-400 transition-all duration-300 transform hover:scale-105"
+                      >
+                        [LIVE_DEMO.exe]
+                      </a>
+                    )}
+                    {project.githubUrl && project.githubUrl !== '#' && (
+                      <a 
+                        href={project.githubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 px-4 py-2 border-2 border-purple-400 text-purple-400 font-bold font-mono text-center hover:bg-purple-400 hover:text-black transition-all duration-300"
+                      >
+                        [SOURCE_CODE.exe]
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -75,32 +98,56 @@ const Projects: React.FC = () => {
         {/* Other Projects */}
         {otherProjects.length > 0 && (
           <div>
-            <h3 className="text-2xl font-semibold text-purple-400 mb-8 text-center font-mono">OTHER_PROJECTS.DAT</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h3 className="text-xl md:text-2xl font-semibold text-purple-400 mb-6 md:mb-8 text-center font-mono">OTHER_PROJECTS.DAT</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {otherProjects.map((project) => (
                 <div key={project.id} className="group">
                   <div className="bg-black border-2 border-purple-400 overflow-hidden hover:border-yellow-400 transition-all duration-300">
-                    <div className="bg-purple-400 p-3">
+                    <div className="bg-purple-400 p-2 md:p-3">
                       <div className="flex items-center space-x-2">
-                        <span className="text-lg">💻</span>
-                        <h4 className="text-black font-bold font-mono text-sm">{project.title.toUpperCase()}</h4>
+                        <span className="text-base md:text-lg">💻</span>
+                        <h4 className="text-black font-bold font-mono text-xs md:text-sm break-words">{project.title.toUpperCase()}</h4>
                       </div>
                     </div>
-                    <div className="p-4">
-                      <div className="bg-black border border-purple-400 p-3 mb-3 font-mono">
+                    <div className="p-3 md:p-4">
+                      <div className="bg-black border border-purple-400 p-2 md:p-3 mb-3 font-mono">
                         <div className="text-purple-400 text-xs mb-1">&gt; DESCRIPTION.TXT</div>
-                        <p className="text-purple-300 text-xs leading-relaxed">{project.description}</p>
+                        <p className="text-purple-300 text-xs leading-relaxed break-words line-clamp-3">{project.description}</p>
                       </div>
                       <div className="flex flex-wrap gap-1 mb-3">
                         {project.technologies.slice(0, 3).map((tech) => (
-                          <span key={tech} className="px-2 py-1 bg-purple-400 text-black text-xs font-mono font-bold">
+                          <span key={tech} className="px-1 md:px-2 py-1 bg-purple-400 text-black text-xs font-mono font-bold">
                             {tech.toUpperCase()}
                           </span>
                         ))}
                         {project.technologies.length > 3 && (
-                          <span className="px-2 py-1 bg-purple-400 text-black text-xs font-mono font-bold">
+                          <span className="px-1 md:px-2 py-1 bg-purple-400 text-black text-xs font-mono font-bold">
                             +{project.technologies.length - 3}
                           </span>
+                        )}
+                      </div>
+                      
+                      {/* Action Buttons */}
+                      <div className="flex flex-col gap-1">
+                        {project.liveUrl && project.liveUrl !== '#' && (
+                          <a 
+                            href={project.liveUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="px-3 py-1 bg-purple-400 text-black text-xs font-mono font-bold text-center hover:bg-yellow-400 transition-all duration-300"
+                          >
+                            [LIVE_DEMO.exe]
+                          </a>
+                        )}
+                        {project.githubUrl && project.githubUrl !== '#' && (
+                          <a 
+                            href={project.githubUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="px-3 py-1 border border-purple-400 text-purple-400 text-xs font-mono font-bold text-center hover:bg-purple-400 hover:text-black transition-all duration-300"
+                          >
+                            [SOURCE_CODE.exe]
+                          </a>
                         )}
                       </div>
                     </div>
@@ -112,15 +159,15 @@ const Projects: React.FC = () => {
         )}
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-black border-2 border-purple-400 p-8 font-mono">
-            <div className="text-purple-400 text-sm mb-2">&gt; COLLABORATION_REQUEST.TXT</div>
-            <h3 className="text-2xl font-semibold text-purple-400 mb-4 font-mono">INTERESTED_IN_WORKING_TOGETHER.exe</h3>
-            <p className="text-purple-300 mb-6 max-w-2xl mx-auto text-sm">
+        <div className="text-center mt-12 md:mt-16">
+          <div className="bg-black border-2 border-purple-400 p-4 md:p-8 font-mono">
+            <div className="text-purple-400 text-xs md:text-sm mb-2">&gt; COLLABORATION_REQUEST.TXT</div>
+            <h3 className="text-lg md:text-2xl font-semibold text-purple-400 mb-3 md:mb-4 font-mono">INTERESTED_IN_WORKING_TOGETHER.exe</h3>
+            <p className="text-purple-300 mb-4 md:mb-6 max-w-2xl mx-auto text-xs md:text-sm px-4">
               I'm always excited to take on new challenges and create amazing mobile experiences. 
               Let's discuss your next project!
             </p>
-            <button className="px-8 py-3 bg-purple-400 text-black font-bold font-mono border-2 border-purple-400 hover:bg-black hover:text-purple-400 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-400/50">
+            <button className="px-6 md:px-8 py-2 md:py-3 bg-purple-400 text-black font-bold font-mono border-2 border-purple-400 hover:bg-black hover:text-purple-400 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-purple-400/50 text-sm md:text-base">
               [START_PROJECT.exe]
             </button>
           </div>
