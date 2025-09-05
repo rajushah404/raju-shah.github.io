@@ -1,8 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'fs'
-import { join } from 'path'
-
-// Create a completely static HTML file
-const staticHtml = `<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -278,8 +274,4 @@ const staticHtml = `<!doctype html>
       });
     </script>
   </body>
-</html>`
-
-// Write the static HTML file as a fallback
-writeFileSync('dist/static.html', staticHtml)
-console.log('✅ Created static HTML fallback')
+</html>

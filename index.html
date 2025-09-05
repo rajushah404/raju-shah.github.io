@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raju</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script>
+      // Inline the entire application to avoid module loading issues
+      (function() {
+        // This will be replaced with the actual bundled JavaScript content
+        console.log('Loading React application...');
+        
+        // Create a script element to load the bundled JS
+        const script = document.createElement('script');
+        script.src = '/assets/index.js';
+        script.async = false;
+        script.defer = false;
+        document.head.appendChild(script);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
